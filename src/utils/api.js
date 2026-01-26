@@ -3,28 +3,24 @@ import axios from "axios";
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 class API {
-  #client;
+	#client;
 
-  constructor(baseURL){
-    this.#client = axios.create({
-      baseURL,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  }
+	constructor(baseURL) {
+		this.#client = axios.create({
+			baseURL,
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+	}
 
-  async getAllContacts(){
-    return await this.#client.get(`/contacts`);
-  }
+	async getAllCampers() {
+		return await this.#client.get(`/campers`);
+	}
 
-  async addContact(payload){
-    return await this.#client.post('/contacts', payload);
-  }
-
-  async deleteContact(id){
-    return await this.#client.delete(`/contacts/${id}`);
-  }
+	async getCamperById(id) {
+		return await this.#client.get(`/campers/${id}`);
+	}
 }
 
 export const api = new API(BASE_URL);
