@@ -1,0 +1,48 @@
+.hero {
+  position: relative;
+  flex: 1;
+
+  background-image: url("../../assets/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  margin-top: 26px;
+  margin-left: 64px;
+}
+
+.mainHeader {
+  color: var(--color-inputs);
+
+  font-family: var(--font-family-primary);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 0.66;
+}
+
+.description {
+  color: var(--Inputs, #F7F7F7);
+
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+}
