@@ -1,0 +1,16 @@
+:root {
+  /* typography */
+  --font-family-primary: 'Inter', sans-serif;
+
+  /* colors */
+  --color-main: #101828;
+  --color-text: #475467;
+  --color-gray: #6C717B;
+  --color-button: #E44848;
+  --color-button-hover: #D84343;
+  --color-rating: #FFC531;
+  --color-light-gray: #DADDE1;
+  --color-badges: #F2F4F7;
+  --color-inputs: #F7F7F7;
+  --color-white: #FFF;
+}
