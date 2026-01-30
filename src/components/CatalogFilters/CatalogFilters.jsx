@@ -1,16 +1,15 @@
-import styles from './CatalogFilters.module.css';
+import styles from "./CatalogFilters.module.css";
 import { Button, ButtonTypesToClassNameMap, ButtonActionsToTypeMap } from "../Button";
 import { Input, InputTypes } from "../Input";
 import { CamperFeature, CamperFeatureTypesToClassNamesMap, VehicleFormFeatureNamesMap } from "../CamperFeature";
-import { IconNamesMap, VehicleFormIconNamesMap } from '../Icon';
-
+import { IconNamesMap, VehicleFormIconNamesMap } from "../Icon";
 
 export const CatalogFilters = () => {
-  return (
+	return (
 		<div className={styles.container}>
 			{/* Location Section */}
 			<div className={styles.section}>
-				<label className={styles.label} for="Location">
+				<label className={styles.label} htmlFor="Location">
 					Location
 				</label>
 				<Input id="Location" type={InputTypes.TEXT} placeholder="" name="Location" isMap={true} />
@@ -25,6 +24,7 @@ export const CatalogFilters = () => {
 				<div className={styles.grid}>
 					{["AC", "transmission", "kitchen", "TV", "bathroom"].map((item) => (
 						<CamperFeature
+							key={item}
 							type={CamperFeatureTypesToClassNamesMap.SQUARE}
 							featureName={item === "transmission" ? "automatic" : item}
 							iconName={IconNamesMap[item]}
@@ -42,6 +42,7 @@ export const CatalogFilters = () => {
 				<div className={styles.grid}>
 					{["panelTruck", "fullyIntegrated", "alcove"].map((item) => (
 						<CamperFeature
+							key={item}
 							type={CamperFeatureTypesToClassNamesMap.SQUARE}
 							featureName={VehicleFormFeatureNamesMap[item]}
 							iconName={VehicleFormIconNamesMap[item]}
@@ -57,4 +58,4 @@ export const CatalogFilters = () => {
 			</div>
 		</div>
 	);
-}
+};
