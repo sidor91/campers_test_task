@@ -17,3 +17,9 @@ export const VehicleFormIconNamesMap = {
 	fullyIntegrated: "bi_grid",
 	alcove: "bi_grid-3x3",
 };
+
+export const DefaultIconsNamesMap = {
+	heart: "heart",
+	rating: "Rating",
+  map: 'map'
+};
