@@ -1,0 +1,45 @@
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.input {
+  padding: 18px;
+  border-radius: 12px;
+  background-color: var(--color-inputs);
+  color: var(--color-main);
+  outline: none;
+  border: none;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.input::placeholder {
+  color: var(--color-gray);
+}
+
+.mapInput {
+  padding-left: 46px;
+}
+
+.icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  fill: var(--color-gray);
+}
+
+.iconPlaceholder {
+  fill: var(--color-gray);
+}
+
+.iconFilled {
+  fill: var(--color-main);
+}

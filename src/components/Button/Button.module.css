@@ -1,0 +1,27 @@
+.button {
+  padding: 16px 60px;
+  border-radius: 200px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+}
+
+.outlinedBtn {
+  border: 1px solid var(--color-light-gray);
+}
+
+.outlinedBtn:hover {
+  border-color: var(--color-button-hover);
+}
+
+.filledBtn {
+  background-color: var(--color-button);
+  color: var(--color-white);
+}
