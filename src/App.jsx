@@ -1,18 +1,23 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import { CatalogPage } from "./pages/CatalogPage/CatalogPage";
-import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
-import { CamperPage } from "./pages/CamperPage/CamperPage";
+
+const Header = lazy(() => import("./components/Header/Header"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
+const CamperPage = lazy(() => import("./pages/CamperPage/CamperPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
 	return (
-		<>
-			<Routes>
-				<Route path="/" element={<h1>Home</h1>} />
-				<Route path="/catalog" element={<CatalogPage />} />
-				<Route path="/catalog/:id" element={<CamperPage />} />
-				<Route path="*" element={<NotFoundPage />} />
-			</Routes>
-		</>
+		<Suspense fallback={<div>Loading...</div>}>
+			<Header/>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/catalog" element={<CatalogPage />} />
+					<Route path="/catalog/:id" element={<CamperPage />} />
+					<Route path="*" element={<NotFoundPage />} />
+				</Routes>
+		</Suspense>
 	);
 }
 

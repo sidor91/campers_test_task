@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCampers } from "../../redux/campersOps";
 
-export function CatalogPage() {
+const CatalogPage = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchCampers());
@@ -10,3 +10,5 @@ export function CatalogPage() {
 
 	return <h1>Catalog</h1>;
 }
+
+export default CatalogPage;

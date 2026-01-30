@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCamperById } from "../../redux/campersOps";
 import { useLocation, useParams } from "react-router-dom";
 
-export function CamperPage(){
+const CamperPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
 	const camperId = params?.id;
@@ -15,3 +15,5 @@ export function CamperPage(){
 
   return <h1>CamperPage</h1>
 }
+
+export default CamperPage;
