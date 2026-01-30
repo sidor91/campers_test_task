@@ -10,4 +10,5 @@ export const IconNamesMap = {
 	microwave: "microwave",
 	gas: "gas-stove",
 	water: "water",
+	logo: "TravelTrucks",
 };
