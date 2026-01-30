@@ -1,9 +1,9 @@
 import styles from "./CamperFeature.module.css";
-import { Icon, IconNamesMap } from "../Icon";
+import { Icon } from "../Icon";
 import { useState } from "react";
 import { CamperFeatureTypesToClassNamesMap } from "./constants";
 
-export const CamperFeature = ({ type, name, iconWidth, iconHeight }) => {
+export const CamperFeature = ({ type, featureName, iconName, iconWidth, iconHeight }) => {
 	const [isSelected, setIsSelected] = useState(false);
 
 	const handleClick = () => {
@@ -19,8 +19,8 @@ export const CamperFeature = ({ type, name, iconWidth, iconHeight }) => {
 			className={`${styles[type]} ${isSelected && type !== CamperFeatureTypesToClassNamesMap.OVAL && styles.selected}`}
 			onClick={handleClick}
 		>
-			<Icon width={iconWidth} height={iconHeight} name={IconNamesMap.AC} fill="#101828" />
-			<span className={styles.iconText}>{name}</span>
+			<Icon width={iconWidth} height={iconHeight} iconName={iconName} fill="#101828" />
+			<span className={styles.iconText}>{featureName}</span>
 		</div>
 	);
 };

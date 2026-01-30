@@ -1,0 +1,55 @@
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: var(--font-family-primary);
+  font-style: normal;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-gray);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.filtersTitle {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.sectionTitle {
+  color: var(--color-main);
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #E5E7EB;
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.searchButtonContainer {
+  margin-top: 8px;
+}

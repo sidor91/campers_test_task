@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCampers } from "../../redux/campersOps";
+import { CatalogFilters } from "../../components/CatalogFilters/CatalogFilters";
 
 const CatalogPage = () => {
 	const dispatch = useDispatch();
@@ -8,7 +9,7 @@ const CatalogPage = () => {
 		dispatch(fetchCampers());
 	}, [dispatch]);
 
-	return <h1>Catalog</h1>;
+	return <><CatalogFilters/></>;
 }
 
 export default CatalogPage;

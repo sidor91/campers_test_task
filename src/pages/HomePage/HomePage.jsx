@@ -1,5 +1,5 @@
 import styles from "./HomePage.module.css";
-import { Button, ButtonTypesToClassNameMap } from "../../components/Button";
+import { Button, ButtonActionsToTypeMap, ButtonTypesToClassNameMap } from "../../components/Button";
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
@@ -11,7 +11,7 @@ const HomePage = () => {
 				<h1 className={styles.mainHeader}>Campers of your dreams</h1>
 				<p className={styles.description}>You can find everything you want in our catalog</p>
 				<Link to="/catalog">
-					<Button text="View Now" type={ButtonTypesToClassNameMap.FILLED} action="button" />
+					<Button text="View Now" type={ButtonTypesToClassNameMap.FILLED} action={ButtonActionsToTypeMap.BUTTON} />
 				</Link>
 			</div>
 		</div>

@@ -10,7 +10,7 @@ const Header = () => {
 	return (
 		<div className={styles.headerContainer}>
 			<div className={styles.logoContainer}>
-				<Icon name={IconNamesMap.logo} width={136} height={15} />
+				<Icon iconName="TravelTrucks" width={136} height={15} />
 			</div>
 			<nav className={styles.navigation}>
 				<NavLink to="/" end className={buildLinkClass}>

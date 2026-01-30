@@ -10,5 +10,10 @@ export const IconNamesMap = {
 	microwave: "microwave",
 	gas: "gas-stove",
 	water: "water",
-	logo: "TravelTrucks",
+};
+
+export const VehicleFormIconNamesMap = {
+	panelTruck: "bi_grid-1x2",
+	fullyIntegrated: "bi_grid",
+	alcove: "bi_grid-3x3",
 };
