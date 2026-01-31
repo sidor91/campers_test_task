@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button, ButtonActionsToTypeMap, ButtonTypesToClassNameMap } from "../Button";
 import styles from "./CamperCard.module.css";
-import { DefaultIconsNamesMap, Icon, IconNamesMap } from "../Icon";
+import { DefaultIconsNamesMap, Icon, FeatureNameIconNamesMap } from "../Icon";
 import { CamperFeature, CamperFeatureTypesToClassNamesMap } from "../CamperFeature";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsFavorite, toggleFavorite } from "../../redux/campersSlice";
@@ -65,14 +65,14 @@ export const CamperCard = ({ data }) => {
 
 				{/* Теги характеристик */}
 				<div className={styles.features}>
-					{Object.keys(IconNamesMap).map(
+					{Object.keys(FeatureNameIconNamesMap).map(
 						(key) =>
 							!!data[key] && (
 								<CamperFeature
 									key={key}
 									type={CamperFeatureTypesToClassNamesMap.OVAL}
 									featureName={typeof data[key] === "boolean" ? key : data[key]}
-									iconName={IconNamesMap[key]}
+									iconName={FeatureNameIconNamesMap[key]}
 									iconWidth={20}
 									iconHeight={20}
 								/>

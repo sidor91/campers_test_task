@@ -14,8 +14,8 @@ class API {
 		});
 	}
 
-	async getAllCampers() {
-		return await this.#client.get(`/campers`);
+	async getAllCampers(params) {
+		return await this.#client.get(`/campers`, { params });
 	}
 
 	async getCamperById(id) {

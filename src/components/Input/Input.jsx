@@ -5,12 +5,9 @@ import { InputTypes } from "./constants";
 import styles from "./Input.module.css";
 import iconsSprite from "../../assets/sprite.svg";
 
-export const Input = ({ type, placeholder, name, isMap, id }) => {
-	const [inputValue, setInputValue] = useState("");
+export const Input = ({ type, placeholder, name, isMap, id, value, setValue }) => {
 	const [range, setRange] = useState([null, null]);
 	const [startDate, endDate] = range;
-
-	const handleChange = (e) => setInputValue(e.target.value);
 
 	if (type === InputTypes.DATE) {
 		return (
@@ -30,7 +27,7 @@ export const Input = ({ type, placeholder, name, isMap, id }) => {
 	return (
 		<div className={styles.inputWrapper}>
 			{isMap && (
-				<svg className={`${styles.icon} ${inputValue ? styles.iconFilled : styles.iconPlaceholder}`}>
+				<svg className={`${styles.icon} ${value ? styles.iconFilled : styles.iconPlaceholder}`}>
 					<use href={`${iconsSprite}#icon-map`} />
 				</svg>
 			)}
@@ -40,8 +37,8 @@ export const Input = ({ type, placeholder, name, isMap, id }) => {
 				type={type}
 				placeholder={placeholder}
 				name={name}
-				value={inputValue}
-				onChange={handleChange}
+				value={value}
+				onChange={setValue}
 			/>
 		</div>
 	);

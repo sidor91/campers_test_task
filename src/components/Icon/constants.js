@@ -1,4 +1,4 @@
-export const IconNamesMap = {
+export const FeatureNameIconNamesMap = {
 	transmission: "diagram",
 	engine: "petrol",
 	AC: "wind",
@@ -21,5 +21,5 @@ export const VehicleFormIconNamesMap = {
 export const DefaultIconsNamesMap = {
 	heart: "heart",
 	rating: "Rating",
-  map: 'map'
+	map: "map",
 };

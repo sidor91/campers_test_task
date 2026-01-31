@@ -1,6 +1,5 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchCampers, getCamperById } from "./campersOps";
-import { selectNameFilter } from "./filtersSlice";
 
 const handlePending = (state) => {
 	state.loading = true;
@@ -10,11 +9,13 @@ const handlePending = (state) => {
 const handleRejected = (state, action) => {
 	state.loading = false;
 	state.error = action.payload;
+	state.items = [];
 };
 
 const slice = createSlice({
 	name: "campers",
 	initialState: {
+		total: 0,
 		items: [],
 		favorites: [],
 		loading: false,
@@ -39,7 +40,13 @@ const slice = createSlice({
 			.addCase(fetchCampers.pending, handlePending)
 			.addCase(fetchCampers.fulfilled, (state, action) => {
 				state.loading = false;
-				state.items = action.payload.items;
+				const { append } = action.meta.arg;
+				if (append) {
+					state.items.push(...action.payload.items);
+				} else {
+					state.items = action.payload.items;
+				}
+				state.total = action.payload.total;
 			})
 			.addCase(fetchCampers.rejected, handleRejected)
 
@@ -55,12 +62,10 @@ const slice = createSlice({
 
 // selectors
 export const selectIsFavorite = (id) => (state) => state.campers.favorites.includes(id);
-const selectCampers = (state) => state.campers.items;
+export const selectCampers = (state) => state.campers.items;
 export const selectLoading = (state) => state.campers.loading;
 export const selectError = (state) => state.campers.error;
-export const selectFilteredCampers = createSelector([selectCampers, selectNameFilter], (campers, nameFilter) =>
-	campers.filter((camper) => camper.name.toLowerCase().includes(nameFilter.toLowerCase())),
-);
+export const getTotal = (state) => state.campers.total;
 
 // actions
 export const { toggleFavorite } = slice.actions;

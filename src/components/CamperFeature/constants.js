@@ -8,3 +8,19 @@ export const VehicleFormFeatureNamesMap = {
 	fullyIntegrated: "Fully Integrated",
 	alcove: "alcove",
 };
+
+export const VehicleFeatureDisplayNamesMap = {
+	AC: "AC",
+	transmission: "automatic",
+	kitchen: "kitchen",
+	TV: "TV",
+	bathroom: "bathroom",
+};
+
+export const VehicleFeatureFilterMap = {
+	AC: true,
+	transmission: "automatic",
+	kitchen: true,
+	TV: true,
+	bathroom: true,
+};

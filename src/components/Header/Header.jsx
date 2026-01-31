@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { Icon, IconNamesMap } from "../Icon";
+import { Icon, FeatureNameIconNamesMap } from "../Icon";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  const buildLinkClass = ({ isActive }) => {
+	const buildLinkClass = ({ isActive }) => {
 		return isActive ? `${styles.navLink} ${styles.activeNavLink}` : styles.navLink;
 	};
 
