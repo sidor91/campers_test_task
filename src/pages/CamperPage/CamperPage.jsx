@@ -7,6 +7,7 @@ import styles from "./CamperPage.module.css";
 import { DefaultIconsNamesMap, Icon } from "../../components/Icon";
 import { CamperFeatures } from "../../components/CamperFeatures/CamperFeatures";
 import { CamperReviews } from "../../components/CamperReviews/CamperReviews";
+import { Form } from "../../components/Form/Form";
 
 const CamperPage = () => {
   const [isFeatures, setIsFeatures] = useState(false);
@@ -55,13 +56,36 @@ const CamperPage = () => {
 					<div className={styles.gallery}>
 						{camper.gallery.map((image, index) => (
 							<div key={image.original} className={styles.imageWrapper}>
-								<img src={image.original} alt={`${camper.name}-${index}`} className={styles.image} />
+								<img
+									key={image.original}
+									src={image.original}
+									alt={`${camper.name}-${index}`}
+									className={styles.image}
+								/>
 							</div>
 						))}
 					</div>
 					<span>{camper.description}</span>
 
-					{isFeatures ? <CamperFeatures data={camper} /> : <CamperReviews data={camper.reviews}/>}
+					<div className={styles.tabsHeader}>
+						<button
+							className={`${styles.tabBtn} ${isFeatures ? styles.active : ""}`}
+							onClick={() => setIsFeatures(true)}
+						>
+							Features
+						</button>
+						<button
+							className={`${styles.tabBtn} ${!isFeatures ? styles.active : ""}`}
+							onClick={() => setIsFeatures(false)}
+						>
+							Reviews
+						</button>
+					</div>
+
+					<div className={styles.featuresReviewsForm}>
+            {isFeatures ? <CamperFeatures data={camper} /> : <CamperReviews data={camper.reviews} />}
+            <Form/>
+          </div>
 				</div>
 			)}
 		</>
