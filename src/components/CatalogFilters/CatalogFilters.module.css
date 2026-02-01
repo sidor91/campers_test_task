@@ -40,7 +40,7 @@
 
 .divider {
   border: none;
-  border-top: 1px solid #E5E7EB;
+  border-top: 1px solid var(--color-light-gray);
   margin-bottom: 24px;
 }
 

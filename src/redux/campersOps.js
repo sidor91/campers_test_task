@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../utils/api";
-import { VehicleFeatureFilterMap } from "../components/CamperFeature";
+import { VehicleFeatureFilterMap } from "../components/CamperFeatureTag";
 
 export const fetchCampers = createAsyncThunk("campers/fetchAll", async (filters, thunkAPI) => {
 	try {
-		const { locationFilter, featureFilters, vehicleTypeFilters, page=1, limit=10 } = filters;
+		const { locationFilter, featureFilters, vehicleTypeFilters, page = 1, limit = 10 } = filters;
 		const params = new URLSearchParams();
 		params.append("page", page);
 		params.append("limit", limit);

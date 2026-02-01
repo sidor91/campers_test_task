@@ -1,19 +1,71 @@
-import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getCamperById } from "../../redux/campersOps";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { selectCampers } from "../../redux/campersSlice";
+import styles from "./CamperPage.module.css";
+import { DefaultIconsNamesMap, Icon } from "../../components/Icon";
+import { CamperFeatures } from "../../components/CamperFeatures/CamperFeatures";
+import { CamperReviews } from "../../components/CamperReviews/CamperReviews";
 
 const CamperPage = () => {
-  const dispatch = useDispatch();
-  const params = useParams();
-	const camperId = params?.id;
-	const location = useLocation();
-	const ref = useRef(location.state ?? "/catalog");
-	useEffect(() => {
-		dispatch(getCamperById(camperId));
-	}, [dispatch, camperId]);
+  const [isFeatures, setIsFeatures] = useState(false);
+	const dispatch = useDispatch();
+	const { id: camperId } = useParams();
 
-  return <h1>CamperPage</h1>
-}
+	const campers = useSelector(selectCampers);
+	const camper = campers.find((item) => item.id === camperId);
+
+	useEffect(() => {
+		if (!camper) {
+			dispatch(getCamperById(camperId));
+		}
+	}, [dispatch, camperId, camper]);
+
+	return (
+		<>
+			{camper && (
+				<div className={styles.container}>
+					<h1>{camper.name}</h1>
+					<div className={styles.ratingLocation}>
+						<div className={styles.rating}>
+							<Icon
+								iconName={DefaultIconsNamesMap.rating}
+								width={16}
+								height={16}
+								fill="#FFC531"
+								style={{
+									"--star-fill": "#FFC531",
+									"--star-stroke": "#FFC531",
+								}}
+							/>
+							<span>
+								{camper.reviews.reduce((acc, item) => acc + item.reviewer_rating, 0) / camper.reviews.length} (
+								{camper.reviews.length} Reviews)
+							</span>
+						</div>
+						<div className={styles.location}>
+							<Icon iconName={DefaultIconsNamesMap.map} width={16} height={16} fill="#101828" />
+							<span>{camper.location}</span>
+						</div>
+					</div>
+					<div className={styles.priceWrapper}>
+						<span className={styles.price}>€{camper.price}.00</span>
+					</div>
+					<div className={styles.gallery}>
+						{camper.gallery.map((image, index) => (
+							<div key={image.original} className={styles.imageWrapper}>
+								<img src={image.original} alt={`${camper.name}-${index}`} className={styles.image} />
+							</div>
+						))}
+					</div>
+					<span>{camper.description}</span>
+
+					{isFeatures ? <CamperFeatures data={camper} /> : <CamperReviews data={camper.reviews}/>}
+				</div>
+			)}
+		</>
+	);
+};
 
 export default CamperPage;

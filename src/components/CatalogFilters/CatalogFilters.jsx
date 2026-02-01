@@ -2,11 +2,11 @@ import styles from "./CatalogFilters.module.css";
 import { Button, ButtonTypesToClassNameMap, ButtonActionsToTypeMap } from "../Button";
 import { Input, InputTypes } from "../Input";
 import {
-	CamperFeature,
+	CamperFeatureTag,
 	CamperFeatureTypesToClassNamesMap,
 	VehicleFormFeatureNamesMap,
 	VehicleFeatureDisplayNamesMap,
-} from "../CamperFeature";
+} from "../CamperFeatureTag";
 import { FeatureNameIconNamesMap, VehicleFormIconNamesMap } from "../Icon";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -61,7 +61,7 @@ export const CatalogFilters = () => {
 				<div className={styles.grid}>
 					{Object.keys(VehicleFeatureDisplayNamesMap).map((item) => (
 						<div key={item} onClick={() => handleFeatureClick(item)}>
-							<CamperFeature
+							<CamperFeatureTag
 								type={CamperFeatureTypesToClassNamesMap.SQUARE}
 								featureName={VehicleFeatureDisplayNamesMap[item]}
 								iconName={FeatureNameIconNamesMap[item]}
@@ -80,7 +80,7 @@ export const CatalogFilters = () => {
 				<div className={styles.grid}>
 					{Object.keys(VehicleFormFeatureNamesMap).map((item) => (
 						<div key={item} onClick={() => handleVehicleTypeClick(item)}>
-							<CamperFeature
+							<CamperFeatureTag
 								type={CamperFeatureTypesToClassNamesMap.SQUARE}
 								featureName={VehicleFormFeatureNamesMap[item]}
 								iconName={VehicleFormIconNamesMap[item]}

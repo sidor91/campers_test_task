@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button, ButtonActionsToTypeMap, ButtonTypesToClassNameMap } from "../Button";
 import styles from "./CamperCard.module.css";
 import { DefaultIconsNamesMap, Icon, FeatureNameIconNamesMap } from "../Icon";
-import { CamperFeature, CamperFeatureTypesToClassNamesMap } from "../CamperFeature";
+import { CamperFeatureTag, CamperFeatureTypesToClassNamesMap } from "../CamperFeatureTag";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsFavorite, toggleFavorite } from "../../redux/campersSlice";
 
@@ -68,7 +68,7 @@ export const CamperCard = ({ data }) => {
 					{Object.keys(FeatureNameIconNamesMap).map(
 						(key) =>
 							!!data[key] && (
-								<CamperFeature
+								<CamperFeatureTag
 									key={key}
 									type={CamperFeatureTypesToClassNamesMap.OVAL}
 									featureName={typeof data[key] === "boolean" ? key : data[key]}

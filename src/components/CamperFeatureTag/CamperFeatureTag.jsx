@@ -1,9 +1,9 @@
-import styles from "./CamperFeature.module.css";
+import styles from "./CamperFeatureTag.module.css";
 import { Icon } from "../Icon";
 import { useState } from "react";
 import { CamperFeatureTypesToClassNamesMap } from "./constants";
 
-export const CamperFeature = ({ type, featureName, iconName, iconWidth, iconHeight }) => {
+export const CamperFeatureTag = ({ type, featureName, iconName, iconWidth, iconHeight }) => {
 	const [isSelected, setIsSelected] = useState(false);
 
 	const handleClick = () => {
@@ -11,7 +11,7 @@ export const CamperFeature = ({ type, featureName, iconName, iconWidth, iconHeig
 			return;
 		}
 
-    setIsSelected((prevState) => !prevState);
+		setIsSelected((prevState) => !prevState);
 	};
 
 	return (
