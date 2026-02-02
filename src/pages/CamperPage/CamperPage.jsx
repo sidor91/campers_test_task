@@ -10,7 +10,7 @@ import { CamperReviews } from "../../components/CamperReviews/CamperReviews";
 import { Form } from "../../components/Form/Form";
 
 const CamperPage = () => {
-  const [isFeatures, setIsFeatures] = useState(false);
+  const [isFeatures, setIsFeatures] = useState(true);
 	const dispatch = useDispatch();
 	const { id: camperId } = useParams();
 
