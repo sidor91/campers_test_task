@@ -2,7 +2,7 @@
   position: relative;
   flex: 1;
 
-  background-image: url("/public/Hero.jpg");
+  background-image: url("/Hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

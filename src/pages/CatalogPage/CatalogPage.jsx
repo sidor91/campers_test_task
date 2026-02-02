@@ -4,13 +4,15 @@ import { fetchCampers } from "../../redux/campersOps";
 import { CatalogFilters } from "../../components/CatalogFilters/CatalogFilters";
 import { CamperList } from "../../components/CamperList/CamperList";
 import styles from "./CatalogPage.module.css";
-import { getTotal, selectCampers } from "../../redux/campersSlice";
+import { getTotal, selectCampers, selectLoading } from "../../redux/campersSlice";
 import { nextPage, selectedFilters } from "../../redux/filtersSlice";
+import { Loader } from "../../components/Loader/Loader";
 
 const CatalogPage = () => {
 	const dispatch = useDispatch();
 	const filters = useSelector(selectedFilters);
 	const items = useSelector(selectCampers);
+  const isLoading = useSelector(selectLoading);
 	const totalItems = useSelector(getTotal);
 
 	const { locationFilter, featureFilters, vehicleTypeFilters } = filters;
@@ -41,7 +43,7 @@ const CatalogPage = () => {
 	return (
 		<div className={styles.container}>
 			<CatalogFilters />
-			<CamperList data={items} loadMore={handleLoadMore} isLoadMoreShown={items.length < totalItems} />
+			{isLoading ? <Loader/> : <CamperList data={items} loadMore={handleLoadMore} isLoadMoreShown={items.length < totalItems} />}
 		</div>
 	);
 };

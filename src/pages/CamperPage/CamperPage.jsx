@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCamperById } from "../../redux/campersOps";
 import { useParams } from "react-router-dom";
-import { selectCampers } from "../../redux/campersSlice";
+import { selectCampers, selectLoading } from "../../redux/campersSlice";
 import styles from "./CamperPage.module.css";
 import { DefaultIconsNamesMap, Icon } from "../../components/Icon";
 import { CamperFeatures } from "../../components/CamperFeatures/CamperFeatures";
 import { CamperReviews } from "../../components/CamperReviews/CamperReviews";
 import { Form } from "../../components/Form/Form";
+import { Loader } from "../../components/Loader/Loader";
 
 const CamperPage = () => {
   const [isFeatures, setIsFeatures] = useState(true);
@@ -15,6 +16,7 @@ const CamperPage = () => {
 	const { id: camperId } = useParams();
 
 	const campers = useSelector(selectCampers);
+  const isLoading = useSelector(selectLoading);
 	const camper = campers.find((item) => item.id === camperId);
 
 	useEffect(() => {
@@ -25,7 +27,8 @@ const CamperPage = () => {
 
 	return (
 		<>
-			{camper && (
+			{isLoading && <Loader/>}
+			{camper && !isLoading && (
 				<div className={styles.container}>
 					<h1 className={styles.camperName}>{camper.name}</h1>
 					<div className={styles.ratingLocation}>
