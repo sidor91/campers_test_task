@@ -27,7 +27,7 @@ const CamperPage = () => {
 		<>
 			{camper && (
 				<div className={styles.container}>
-					<h1>{camper.name}</h1>
+					<h1 className={styles.camperName}>{camper.name}</h1>
 					<div className={styles.ratingLocation}>
 						<div className={styles.rating}>
 							<Icon
@@ -65,7 +65,7 @@ const CamperPage = () => {
 							</div>
 						))}
 					</div>
-					<span>{camper.description}</span>
+					<p className={styles.description}>{camper.description}</p>
 
 					<div className={styles.tabsHeader}>
 						<button
@@ -83,9 +83,11 @@ const CamperPage = () => {
 					</div>
 
 					<div className={styles.featuresReviewsForm}>
-            {isFeatures ? <CamperFeatures data={camper} /> : <CamperReviews data={camper.reviews} />}
-            <Form/>
-          </div>
+						<div className={styles.featuresReviewsContainer}>
+							{isFeatures ? <CamperFeatures data={camper} /> : <CamperReviews data={camper.reviews} />}
+						</div>
+						<Form />
+					</div>
 				</div>
 			)}
 		</>

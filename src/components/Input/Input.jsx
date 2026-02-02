@@ -1,13 +1,11 @@
-import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { InputTypes } from "./constants";
 import styles from "./Input.module.css";
 import iconsSprite from "../../assets/sprite.svg";
 
-export const Input = ({ type, placeholder, name, isMap, id, value, setValue }) => {
-	const [range, setRange] = useState([null, null]);
-	const [startDate, endDate] = range;
+export const Input = ({ type, placeholder, name, isMap, id, value, setValue, dates, setDates, isRequired = false }) => {
+	const [startDate, endDate] = dates || [];
 
 	if (type === InputTypes.DATE) {
 		return (
@@ -15,7 +13,7 @@ export const Input = ({ type, placeholder, name, isMap, id, value, setValue }) =
 				selectsRange
 				startDate={startDate}
 				endDate={endDate}
-				onChange={(update) => setRange(update)}
+				onChange={setDates}
 				placeholderText="Booking date*"
 				className={styles.input}
 				dateFormat="yyyy-MM-dd"
@@ -39,6 +37,7 @@ export const Input = ({ type, placeholder, name, isMap, id, value, setValue }) =
 				name={name}
 				value={value}
 				onChange={setValue}
+				required={isRequired}
 			/>
 		</div>
 	);

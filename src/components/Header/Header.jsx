@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Icon, FeatureNameIconNamesMap } from "../Icon";
 import styles from "./Header.module.css";
 
@@ -10,7 +10,9 @@ const Header = () => {
 	return (
 		<div className={styles.headerContainer}>
 			<div className={styles.logoContainer}>
-				<Icon iconName="TravelTrucks" width={136} height={15} />
+				<Link to="/">
+					<Icon iconName="TravelTrucks" width={136} height={15} />
+				</Link>
 			</div>
 			<nav className={styles.navigation}>
 				<NavLink to="/" end className={buildLinkClass}>
